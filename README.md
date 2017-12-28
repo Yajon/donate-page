@@ -1,11 +1,16 @@
 # Donate-Page
 
-这是一系列整理好的捐赠按钮样式。
+一款捐赠按钮样式，包含PayPal、支付宝、微信，可使用iframe直接嵌入，方便简洁。
 
-[Simple](https://github.com/Kaiyuan/donate-page/tree/gh-pages/simple)
+**Demo示例：**[在线演示](https://yojoy.top/donate-page/)
 
-<video class="share-video" id="share-video" poster="https://thumbs.gfycat.com/TatteredAlarmingCopperhead-poster.jpg" autoplay="" muted="" loop=""><source id="webmSource" src="https://zippy.gfycat.com/TatteredAlarmingCopperhead.webm" type="video/webm"><source id="mp4Source" src="https://zippy.gfycat.com/TatteredAlarmingCopperhead.mp4" type="video/mp4"><img title="Sorry, your browser doesn't support HTML5 video." src="https://i.imgur.com/yNz5vJc.gif"></video>
----
+**样式一** [翻转卡片](https://yojoy.top/donate-page/sample1/index.html)
+
+![GIF动态效果图1](https://upload-images.jianshu.io/upload_images/1819713-518ef42c3301b2fa.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/420/format/webp)
+
+**样式二** [打赏咖啡](https://yojoy.top/donate-page/sample2/index.html)
+
+![GIF动态效果图2](https://upload-images.jianshu.io/upload_images/1819713-e79a16e2bff907d4.GIF?imageMogr2/auto-orient/strip)
 
 ### License
 
