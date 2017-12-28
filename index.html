@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>一月筠</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+            line-height: 1.6;
+            font-size: 16px;
+            font-family: system-ui, -apple-system, Helvetica Neue, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #10aeff;
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        a img {
+            border: 0;
+        }
+
+        /*文章样式*/
+        .weui-content {
+            padding: 20px 16px 12px;
+            padding-top: 32px;
+            word-wrap: break-word;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .weui-c-inner {
+            max-width: 677px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .weui-c-content {}
+
+        .weui-c-title {
+            font-size: 22px;
+            line-height: 1.4;
+            margin-bottom: 14px;
+            font-weight: 400;
+        }
+
+        @supports (-webkit-overflow-scrolling:touch) {
+            .weui-c-title {
+                font-weight: 700
+            }
+        }
+
+        .weui-c-meta {
+            margin-bottom: 22px;
+            line-height: 20px;
+            font-size: 0;
+            word-wrap: break-word;
+            word-break: break-all
+        }
+
+        .weui-c-meta em {
+            font-style: normal;
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        .weui-c-nickname {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px 10px 0;
+            font-size: 15px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+
+        .weui-c-article {
+            overflow: hidden;
+            color: #333;
+            font-size: 17px;
+            word-wrap: break-word;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
+            text-align: justify
+        }
+
+        .weui-c-article * {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            -webkit-box-sizing: border-box !important;
+            word-wrap: break-word !important
+        }
+
+        .weui-c-article p {
+            clear: both;
+            min-height: 1em;
+            text-indent: 2em;
+            padding-bottom: 1em;
+        }
+
+        .weui-c-article em {
+            font-style: italic
+        }
+
+        .weui-c-article fieldset {
+            min-width: 0
+        }
+
+        .weui-c-article .list-paddingleft-2 {
+            padding-left: 2.2em
+        }
+
+        .weui-c-article .list-paddingleft-2 .list-paddingleft-2 {
+            padding-left: 30px
+        }
+
+        .weui-c-article blockquote {
+            margin: 0;
+            padding-left: 10px;
+            border-left: 3px solid #dbdbdb
+        }
+
+        .weui-c-article img {
+            height: auto !important;
+            display: block;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .weui-c-tools {
+            font-size: 15px;
+            padding-top: 24px;
+            overflow: hidden;
+            line-height: 32px;
+        }
+
+        .weui-c-tools a {
+            margin-right: 20px;
+
+        }
+
+        .weui-c-readnum {
+            display: inline-block;
+            margin-right: 20px;
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        .weui-c-like {
+            min-width: 2.5em;
+            color: #576b95;
+            text-align: right;
+            float: right;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .weui-c-like .icon {
+            background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAA+CAYAAAA1dwvuAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACd0lEQVRYhe2XMWhUMRjHfycdpDg4iJN26CQih4NUlFIc3iTasaAO+iZBnorIId2CDg6PLqWDXSy0p28TJ6ejILgoKiLFSeRcnASLnDf2HPKll8b3ah5NQPB+cHzJl0v+73J5Sf6NwWCAD6kqxoEV4BywCTwA2j59V9QlxrxUNJeBOSkfBtaAHvDcp/O+GkJHJd4H7kr5nm/nOkJHJH4FHkv5WAyhUxLfAgelvBlUKFXFBNCU6oYl+j6oEHohADwFtoDTUn8dTChVxX7gjlSfSJyS+CaYEDCPXs4d4IXkzDR+8BWqfI9SVUyil/ENST20ml8BF4Afu4z9HT3V80B/TAY9CxTABNAHxp1Oj4B1q34dWAamGa5Al0PALfSs3TS/aE1EcERWgQXgozPIN+Ai6O2ljFQVM8BLZJqN0KTEhgj9kvrViqf1wYz5BcoXQ38Pg9uckfiuSigU0xLXowmlqpgCjgNd4FM0IeCKxGcmEUtoRqLZScILpaqYA06iN9/tTTfGLzKvxLKdDCqUquIEcB59xK9GE2J4xLeBn3ZD1abaq/sQqSpmgWvo82rBbTdCPeAA4N69/noXS1XhphaBz27SPPVtapz/FXSBFsNDcgcN3wvkiBEjRoSndAtqLXXKvuvtYfMs+SP3T3tYm6ge1iaqh7UJ62HRTqNZko/mYV3CeVjA9rAuUTxsGd4edrcX1vWwddn2sHmWaA/bWuq4HnYLff3aC7U8bAiaMPyPJp3GhnxCUOlhQxPdwxrieViLbp4lUT2sIbqHNcTzsBYbeZZE9bCGeB7WIrqHNbTzLNnhYWMIlXpYI9Rz8gM8/GsFi3mW/Ace9jf8QZwIX5o4uQAAAABJRU5ErkJggg==) no-repeat 0 0;
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            display: inline-block;
+            -webkit-background-size: 100% auto;
+            background-size: 100% auto;
+            position: relative;
+            top: 1px;
+            cursor: pointer;
+        }
+
+        .weui-c-like .on {
+            background-position: 1px -22px;
+        }
+
+        .weui-c-like span {
+            margin-left: -3px;
+            display: inline-block;
+            vertical-align: middle;
+            color: #576b95;
+        }
+
+        /*cell样式*/
+        .weui-cells__title {
+            margin-top: 0.77em;
+            margin-bottom: 0.3em;
+            padding: 0 15px;
+            color: #999999;
+            font-size: 14px;
+        }
+
+        .weui-cells__title+.weui-cells {
+            margin-top: 0;
+        }
+
+        .weui-cells {
+            margin: 1.17647059em 15px 0px 15px;
+            /* background-color: #FFFFFF; */
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            line-height: 1.47058824;
+            font-size: 17px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .weui-cells:before {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            height: 1px;
+            border-top: 1px solid #e5e5e5;
+            color: #e5e5e5;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+            z-index: 2;
+        }
+
+        .weui-cell_access {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            color: inherit;
+        }
+
+        .weui-cell {
+            padding: 10px 15px;
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .weui-cell__bd {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+        }
+
+        .weui-cell_access .weui-cell__ft {
+            padding-right: 13px;
+            position: relative;
+        }
+
+        .weui-cell__ft {
+            text-align: right;
+            color: #999999;
+        }
+
+        .weui-cell_access .weui-cell__ft:after {
+            content: " ";
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border-width: 2px 2px 0 0;
+            border-color: #C8C8CD;
+            border-style: solid;
+            -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+            transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+            position: relative;
+            top: -2px;
+            position: absolute;
+            top: 50%;
+            margin-top: -4px;
+            right: 2px;
+        }
+
+        /* 代码样式 */
+        .code-snippet {
+            margin: 10px 0;
+            display: block;
+            overflow-x: auto;
+            font-size: 14px;
+            padding: 1em 1em 1em 3em;
+            color: #333;
+            position: relative;
+            background-color: #fafafa;
+            border: 1px solid #f0f0f0;
+            border-radius: 2px;
+            counter-reset: line;
+            white-space: normal;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .code-snippet code {
+            text-align: left;
+            font-size: 14px;
+            display: block;
+            white-space: pre-wrap;
+            position: relative;
+            font-family: Consolas, Liberation Mono, Menlo, Courier, monospace
+        }
+
+        .code-snippet code:before {
+            position: absolute;
+            min-width: 1.5em;
+            text-align: right;
+            left: -2.5em;
+            counter-increment: line;
+            content: counter(line);
+            display: inline;
+            margin-right: 12px;
+            color: rgba(0, 0, 0, .15)
+        }
+
+        .code-snippet_nowrap code {
+            white-space: pre;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .code-snippet__fix {
+            font-size: 14px;
+            margin: 10px 0;
+            display: block;
+            color: #333;
+            position: relative;
+            background-color: rgba(0, 0, 0, .03);
+            border: 1px solid #f0f0f0;
+            border-radius: 2px;
+            display: -ms-flexbox;
+            display: flex;
+            line-height: 26px
+        }
+
+        .code-snippet__fix pre {
+            overflow-x: auto;
+            padding: 1em;
+            white-space: normal;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-overflow-scrolling: touch;
+            text-align: left;
+            word-break: break-all;
+        }
+
+        .code-snippet__fix code {
+            text-align: left;
+            font-size: 14px;
+            display: block;
+            white-space: pre;
+            display: -ms-flexbox;
+            display: flex;
+            position: relative;
+            font-family: Consolas, Liberation Mono, Menlo, Courier, monospace
+        }
+
+        .code-snippet__meta {
+            color: #afafaf
+        }
+    </style>
+</head>
+
+<body ontouchstart="">
+    <div class="weui-content">
+        <div class="weui-c-inner">
+            <div class="weui-c-content">
+                <h2 class="weui-c-title">一款捐赠按钮样式，包含PayPal、支付宝、微信，可使用iframe直接嵌入，方便简洁。</h2>
+                <div class="weui-c-meta">
+                    <span class="weui-c-nickname"><a href="https://yojoy.top">一月筠</a></span>
+                    <em class="weui-c-nickname">2012-09-01 10:10</em>
+                </div>
+                <div class="weui-c-article">
+                    <h4>iframe引入</h4>
+                    <p>使用 iframe 嵌入页面的代码，高度至少 240px，宽度至少 310px！</p>
+                    <section class="code-snippet__fix code-snippet__js">
+                        <pre class="code-snippet__js" data-lang="python">
+                            <span class="code-snippet__meta">
+                                &lt;iframe src="https://yojoy.top/donate-page/sample1/index.html" style="overflow-x:hidden;overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;"  frameborder="0" scrolling="no"> &lt;/iframe&gt;
+                            </span>
+                        </pre>
+                    </section>
+                    <h4>设置PayPal账户</h4>
+                    <section class="code-snippet__fix code-snippet__js">
+                        <pre class="code-snippet__js" data-lang="python">
+                            <span class="code-snippet__meta">
+                                /script.js:4-6 对应账户的二维码路径
+                                /index.html:28 PayPal.me 改为现在收款页面，这样可以删除原来的按钮方式了。
+                            </span>
+                        </pre>
+                    </section>
+                    <h4>针对不同项目可以直接在 URL 加入项目参数和金额，不过仅仅作用于 PayPal 方式</h4>
+                    <section class="code-snippet__fix code-snippet__js">
+                        <pre class="code-snippet__js" data-lang="python">
+                            <span class="code-snippet__meta">https://yojoy.top/donate-page/sample2/index.html?item=donate-page&price=888'</span>
+                        </pre>
+                    </section>
+                </div>
+            </div>
+            <div id="cellsGroup"
+                style="border-radius: 8px; padding-bottom: 0.77em; box-shadow: rgb(180 180 180) 0em 0em 0.5em 0px;">
+                <h3 style="text-align: center;">样式示例</h1>
+                    <div class="weui-cells__title">样式一</div>
+                    <div class="weui-cells">
+                        <a class="weui-cell_access" href="./sample1/index.html">
+                            <div role="option" class="weui-cell weui-cell_example">
+                                <div class="weui-cell__hd">
+                                    <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="border-radius: 10px; width: 20px; margin-right: 16px; display: block;"> -->
+                                    <img src="https://avatars.githubusercontent.com/u/13490798?s=320" alt="" style="border-radius: 10px; width: 20px; margin-right: 16px; display: block;">
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>翻转卡片</p>
+                                </div>
+                                <div class="weui-cell__ft">跳转</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="weui-cells__title">样式二</div>
+                    <div class="weui-cells">
+                        <a class="weui-cell_access" href="./sample2/index.html">
+                            <div role="option" class="weui-cell weui-cell_example">
+                                <div class="weui-cell__hd">
+                                    <img src="https://avatars.githubusercontent.com/u/13490798?s=320" alt="" style="border-radius: 10px; width: 20px; margin-right: 16px; display: block;">
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>打赏咖啡</p>
+                                </div>
+                                <div class="weui-cell__ft">跳转</div>
+                            </div>
+                        </a>
+                    </div>
+            </div>
+            <div style="margin: 20px 10% 0 10%;">
+            </div>
+            <div class="weui-c-tools">
+                <a href="https://yojoy.top">一月筠</a>
+                <div class="weui-c-readnum">@copyright<span id="readnum"></span></div>
+                <div class="weui-c-like">
+                    <i class="icon"></i>
+                    <span id="likenum">1000</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        var timeDiff = Math.abs((new Date()).getTime() - (new Date('2020-11-22')).getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        document.getElementById("likenum").innerText = diffDays;
+    </script>
+</body>
+
+</html>
