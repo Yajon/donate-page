@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<!-- /******/
+    //  Created by GuoYanjun on 2020/11/22.
+    //  https://yojoy.top || https://guoyanjun.top
+/******/ -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <title>🚀 红色火箭App下载</title>
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+            font-family: system-ui, -apple-system, Helvetica Neue, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            --rrh-commonOrange-0: #F96C24;
+        }
+
+        .rrh_page {
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            outline: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        /* Toast 样式 */
+        .rrh_toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0.9;
+            transition: opacity 0.5s ease;
+            z-index: 1000;
+        }
+
+        .rrh_cellIcon {
+            width: 30px;
+            margin-right: 6px;
+            border-color: var(--rrh-commonOrange-0);
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 5px;
+            display: block;
+        }
+
+        .rrh_cellBack {
+            box-shadow: 0px 10px 10px 0px rgba(86, 100, 114, 0.1);
+            /* box-shadow: 0px 10px 10px 0px rgba(249, 108, 36, 0.1); */
+            border-radius: 8px;
+            margin: 0px 16px 10px;
+            background-color: var(--weui-BG-0);
+        }
+
+        .rrh_cell_desc_time {
+            color: var(--rrh-commonOrange-0);
+            border: var(--rrh-commonOrange-0) solid 1px;border-radius: 9px;
+            margin: 0 4px 0 0;
+            padding: 0 4px;
+            font-size: 10px;
+        }
+
+        .rrh_cellDescription {
+            border-top: 1px dotted var(--weui-FG-0);
+            font-size: 12px;
+            color: var(--weui-FG-2);
+            line-height: 1.4;
+            margin: -10px 16px 0px 16px;
+            padding-bottom: 5px;
+        }
+
+        .rrh_float_menu {
+            position: fixed;
+            z-index: 88;
+            right: 16px;
+            bottom: 34px;
+            padding: 4px;
+            cursor: pointer;
+        }
+
+        .rrh_float_btn {
+            width: 40px;
+            height: 40px;
+            user-select: none;
+            background: rgba(216, 218, 220, 0.8);
+            transition: all 0.3s ease-in-out;
+            backdrop-filter: saturate(180%) blur(20px);
+            right: unset;
+            bottom: unset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-size: 14px;
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            list-style: none;
+            font-feature-settings: "tnum";
+            z-index: 10;
+            position: relative;
+        }
+
+        .rrh_back_top_icon {
+            width: 20px;
+            height: 20px;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAuMDAwMDAwIiBoZWlnaHQ9IjIwLjAwMDAwMCIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KCTxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTpub3JtYWwiPgoJCTxyZWN0IGlkPSJpYy9wdWJsaWMvYXJyb3cudXBfbGluZSIgd2lkdGg9IjIwLjAwMDAwMCIgaGVpZ2h0PSIyMC4wMDAwMDAiIGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iMCIvPgoJCTxtYXNrIGlkPSJtYXNrXzEzNzZfMzMyNzciIGZpbGw9IndoaXRlIj4KCQkJPHBhdGggaWQ9IuW9oueKtue7k+WQiCIgZD0iTTExLjIxODUgMi4xNjY5M0MxMC40ODE2IDEuNTM1ODkgOS4zNzE0MyAxLjU2OTA5IDguNjczODkgMi4yNjY2TDIuNDc0NyA4LjQ2NTc2TDIuNDE0MTggOC41MzU4OUMyLjIzMjY3IDguNzgwNTIgMi4yNTI4NCA5LjEyNzc1IDIuNDc0NyA5LjM0OTY3QzIuNzE4NzggOS41OTM3NSAzLjExNDUzIDkuNTkzNzUgMy4zNTg2MSA5LjM0OTY3TDkuMzc1IDMuMzMzMjVMOS4zNzUgMTcuNjU3N0w5LjM4MDcxIDE3Ljc0MjVDOS40MjIwOSAxOC4wNDc1IDkuNjgzNTYgMTguMjgyNyAxMCAxOC4yODI3QzEwLjM0NTIgMTguMjgyNyAxMC42MjUgMTguMDAyOSAxMC42MjUgMTcuNjU3N0wxMC42MjUgMy4zMzMyNUwxNi42NDE0IDkuMzQ5NjdMMTYuNzExNSA5LjQxMDE2QzE2Ljk1NjEgOS41OTE2NyAxNy4zMDM0IDkuNTcxNTMgMTcuNTI1MyA5LjM0OTY3QzE3Ljc2OTMgOS4xMDU1OSAxNy43NjkzIDguNzA5ODQgMTcuNTI1MyA4LjQ2NTc2TDExLjMyNjEgMi4yNjY2TDExLjIxODUgMi4xNjY5M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIiBmaWxsLW9wYWNpdHk9IjEuMDAwMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KCQk8L21hc2s+CgkJPHBhdGggaWQ9IuW9oueKtue7k+WQiCIgZD0iTTExLjIxODUgMi4xNjY5M0MxMC40ODE2IDEuNTM1ODkgOS4zNzE0MyAxLjU2OTA5IDguNjczODkgMi4yNjY2TDIuNDc0NyA4LjQ2NTc2TDIuNDE0MTggOC41MzU4OUMyLjIzMjY3IDguNzgwNTIgMi4yNTI4NCA5LjEyNzc1IDIuNDc0NyA5LjM0OTY3QzIuNzE4NzggOS41OTM3NSAzLjExNDUzIDkuNTkzNzUgMy4zNTg2MSA5LjM0OTY3TDkuMzc1IDMuMzMzMjVMOS4zNzUgMTcuNjU3N0w5LjM4MDcxIDE3Ljc0MjVDOS40MjIwOSAxOC4wNDc1IDkuNjgzNTYgMTguMjgyNyAxMCAxOC4yODI3QzEwLjM0NTIgMTguMjgyNyAxMC42MjUgMTguMDAyOSAxMC42MjUgMTcuNjU3N0wxMC42MjUgMy4zMzMyNUwxNi42NDE0IDkuMzQ5NjdMMTYuNzExNSA5LjQxMDE2QzE2Ljk1NjEgOS41OTE2NyAxNy4zMDM0IDkuNTcxNTMgMTcuNTI1MyA5LjM0OTY3QzE3Ljc2OTMgOS4xMDU1OSAxNy43NjkzIDguNzA5ODQgMTcuNTI1MyA4LjQ2NTc2TDExLjMyNjEgMi4yNjY2TDExLjIxODUgMi4xNjY5M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIzAwMDAwMCIgZmlsbC1vcGFjaXR5PSIxLjAwMDAwMCIgZmlsbC1ydWxlPSJldmVub2RkIiBtYXNrPSJ1cmwoI21hc2tfMTM3Nl8zMzI3NykiLz4KCQk8cGF0aCBpZD0i5b2i54q257uT5ZCIIiBkPSIiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIzk3OTc5NyIgZmlsbC1vcGFjaXR5PSIwLjAwMDAwMCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cgk8L2c+Cjwvc3ZnPgo=);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .rrh_marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+
+        .rrh_marquee_content {
+            display: inline-block;
+            animation: rrh_marquee 5s linear infinite;
+        }
+
+        @keyframes rrh_marquee {
+            0% {
+                transform: translateX(25%);
+            }
+            100% {
+                transform: translateX(-25%);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://res.wx.qq.com/t/wx_fed/weui-source/res/2.6.18/weui.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/weui.js/res/1.2.21/weui.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="rrh_page">
+            <div class="page__hd" style="position: fixed;z-index: 88;background-color: var(--weui-BG-1);width: 100%;">
+                <div class="page__title" style="text-align: center; font-weight: bold;padding-top: 5px;color: var(--weui-FG-0);">
+                    <div class="rrh_marquee">
+                        <div class="rrh_marquee_content">
+                            🚀 红色火箭App下载，请使用iPhone的Safari浏览器打开
+                        </div>
+                    </div>
+                </div>
+
+                <div id="searchBar" style="background: var(--weui-BG-1);" class="weui-search-bar weui-search-bar_outlined">
+                    <!-- <a href="javascript:" role="button" class="weui-search-bar__back-btn">
+                        <i role="img" aria-label="返回" class="weui-icon-back-arrow-thin"></i>
+                    </a> -->
+                    <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false"
+                        aria-owns="searchResult" class="weui-search-bar__form">
+                        <div class="weui-search-bar__box">
+                            <input type="search" aria-controls="searchResult" class="weui-search-bar__input"
+                                id="searchInput" placeholder="搜索" required="">
+                            <div class="weui-search-bar__mask"></div>
+                            <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
+                        </div>
+                    </form>
+                    <a href="javascript:" role="button" class="weui-search-bar__search-btn weui-btn weui-btn_primary"
+                        style="background-color: var(--rrh-commonOrange-0)" id="searchBtn">搜索</a>
+                    <a href="javascript:" role="button" class="weui-search-bar__cancel-btn"
+                        style="color: var(--rrh-commonOrange-0)"="searchCancel">取消</a>
+                </div>
+            </div>
+
+            <div class="page__bd" style="margin-top: 107px;">
+                <!-- <div class="weui-cells__title">版本列表</div> -->
+                <div class="weui-flex js_category"
+                    style="padding: 0px 16px;background-color: rgba(249, 108, 36, 0.1); color: #F96C24;"
+                    data-expanded="true" tabindex="0">
+                    <p class="weui-flex__item" style="align-content: center;">测试环境</p>
+                    <img style="width: 30px; height: 30px;" src="https://weui.io/images/icon_nav_nav.png" alt=" 收起"
+                        role="button">
+                </div>
+                <div id="EnterpriseEnvironment" class="page__category js_categoryInner" data-hidden="false">
+                    <div class="weui-cells">
+                    </div>
+                </div>
+
+                <div class="weui-flex js_category"
+                    style="padding: 0px 16px;background-color: rgba(249, 108, 36, 0.1); color: #F96C24;"
+                    data-expanded="true" tabindex="1">
+                    <p class="weui-flex__item" style="align-content: center;">灰度环境</p>
+                    <img style="width: 30px; height: 30px;" src="https://weui.io/images/icon_nav_nav.png" alt=" 收起"
+                        role="button">
+                </div>
+                <div id="GrayEnvironment" class="page__category js_categoryInner" data-hidden="false">
+                    <div class="weui-cells">
+                    </div>
+                </div>
+                <div class="weui-flex js_category"
+                    style="padding: 0px 16px;background-color: rgba(249, 108, 36, 0.1); color: #F96C24;"
+                    data-expanded="true" tabindex="1">
+                    <p class="weui-flex__item" style="align-content: center;">生产环境</p>
+                    <img style="width: 30px; height: 30px;" src="https://weui.io/images/icon_nav_nav.png" alt=" 收起"
+                        role="button">
+                </div>
+                <div id="ReleaseEnvironment" class="page__category js_categoryInner" data-hidden="false">
+                    <div class="weui-cells">
+                    </div>
+                </div>
+                <div id="qrcodeDialog" class="weui-gallery" id="gallery" wah-hotarea="click"
+                    style="display: none; opacity: 1;">
+                    <span id="galleryImg" class="weui-gallery__img" style="background-image: url();"></span>
+                    <div class="weui-gallery__opr">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page__ft"
+                style="color: #000000;z-index: 10;position: fixed;bottom: 0px;background-color: #FFFFFF;height: 34px;width: 100%;display: flex;">
+                <div class="weui-footer" style="color: #000000;align-content: center;width: 100%;">
+                    <div class="weui-footer__text">
+                        Copyright © <a class="weui-footer__text__meta" href="https://yojoy.top">郭艳军 / 🚀红色火箭iOS组</a>
+                        CAMC All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rrh_float_menu">
+            <div class="rrh_float_btn">
+                <i class="rrh_back_top_icon"></i>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const _0x3e91=['url(','https://cdn-oss-msts.amcfortune.com/app-pack/RedRocket/RedRocket_AppHistory.json?t=','actionSheet','amcredrocket','value','info','constructor','Release','includes','json','AppleWebKit','\x20\x20\x20\x20</div>','.weui-search-bar__search-btn','weui-search-bar_focusing','click','parent','\x20\x20\x20\x20<img\x20alt=\x22\x22\x20class=\x22rrh_cellIcon\x22\x20src=\x22','css','rrh_toast','.weui-cells\x20.weui-cell_access','revision','compile','console','addClass','background-image','\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22rrh_cell_desc_time\x22>','.weui-search-bar__cancel-btn','attr','div','style','ready','.weui-search-bar__label','mobile','{}.constructor(\x22return\x20this\x22)(\x20)','.weui-cells','.weui-search-bar__input','href','<span\x20class=\x22weui-cell__bd\x22>','.ipa','appendChild','function','removeChild','substring','apply','error','.weui-icon-clear','replace','append','body','Enterprise','undefined','environment','Gray','indexOf','safari','itms-services://?action=download-manifest&url=','now','match','exception','test','\x20\x20\x20\x20<span\x20style=\x22font-size:\x2011px;background-color:\x20rgba(249,\x20108,\x2036,\x200.5);border-radius:\x207px;padding:\x200\x204px;\x22>','Presto','warn','http请求失败\x20==\x20\x0a','focus','table','description','二维码','Trident','data-expanded','debug','<div\x20class=\x22rrh_cellBack\x22>','return\x20(function()\x20','show','length','trace','ios','toLowerCase','blur','title','<div\x20class=\x22weui-cell__hd\x22>','#EnterpriseEnvironment','#searchBar','log','min','版本说明','#galleryImg','^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}','<div\x20class=\x22weui-cell__ft\x22></div>','#qrcodeDialog','点击mask','split','filter','</span>','Linux','<div\x20class=\x22rrh_cellDescription\x22>','\x22\x20rrh-url=\x22','url','true','hide','time','versions','pop','<div\x20role=\x22option\x22\x20class=\x22weui-cell\x22>','opacity','fadeOut','userAgent','download','\x20\x20\x20\x20<div\x20class=\x22weui-cell__desc\x22\x20style=\x22color:\x20var(--weui-FG-0);\x22>','Gecko','version','val','qrcode','custom-classname','find','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABIUExURf87Bv9kOv/o4v/Pwv/x7v9XKf9HFf////8/DP/7+f+EYv9sRf+qk/+ghv9OHv+1oP/h2f+Xe//Xzf96Vv+Pcf/Ht/++rf9zTcBivdUAAAv1SURBVHja7Z3nltsqEIBRRah3vf+b3mzcZFtI05CdvfAr52Rti4+ZYRpI6f/5UB6AB+ABeAAegAfgAXgAHoAH4AF4AB6AB+ABeAAegAfgAXgAHoAH4AF4AB6AB+ABeAAegAfgAXgAHoCTYfqmG4IkVUplaRLkXdOb/weAuCkyZR9FGf9eAKaqFWjUVfzrAJgqU6iRVeb3AAiDrWVexqqZpiiapqYaiy3hCMLfAOB19mk+WdfWzHm6sgftL5CA/EmsO9CSht0fCsWbGYjG5F1Riqr9YgBRtp48XadNmewbjGX+RgDVSt8j+teUKcxqJtN3AXjIft3Tlz7HbR3V1wB4PHjJ+ZpGYUfwFQDGu1jSHZq2/hF/hR/xxwHcly1nfUdKBKDMZwHEN8s/cs0nFYD6KICCv/rlYx4zCUD1OQD9zYdj+A7rhYyUexGQBHB1V1KGy5M9TSOmAQg/AyC8/jzD6clf15EGYPkIgJwt/eG7ICv3OiAFICNI3/MY1D8MIKT6YZvafxktHUB5NoCr79NLGP+n3SyhAUhPBrBcAl4tJ/5//WiyJ4TSAQEACdf66do2C/MvALgob8NJythnQQQwnwiAbf3Nnj+T0QAU5wEgRWBP0ZN1FvkpRkAJzJ9j/sKDWXw5APSmg5n/PwDgkvPTLuT/5s90NADmFAD37Vrc/rFFYDoDQMadv4YIckoC0J0AIOHq//Ee97MPtI4jYjKAhWv/IY4+WQdq5wAaQv7RkjzfGRE5MegaQMj1f4CiTRYB1wC4/i90Wi01NeoYQIaMOAgGUD2czOzrAOTc+HddOj62AvG3AQjZG4DBzaT4MgDsDQAj1B3NDroEEDCz/8gg9zBmOhtAzzYAuAVN30omHwbAV4CAkOROvwZAwfYA0EbdEMyAMwAhQwHmBWsBV7MxXwKAqgBRcPXr7jV0xEjQhjBxBWAm7QB9uloWcniPcYlzVwAoOYDl9lQNUQBuGZ4IaTgdABjRMWCcvuglMdPfwiNIXJlSoQUAYwHj7LWHj9j0cd14QnEbiAMwIC1g/d7BVysWAf1ZALj2t3zroaDuX16VXbEl1skHAaAEINw0zJA82LpVvl/rULNKxok1CChHArCQ/bkXGxNmr7lec2xHRycAKrgAbD0j0Ii1e9nTVMOEoHUC4OebB3jAuJWpD4DKO9frQ0PTew9g8IEGiQj8zZ3ViMPmX72u5fTu45nkdAAZ1MUu6HkN8+4qLW8bSngYVQdOAECb8RP7ohxpQLUV9SVvUIKj1GrkAgB0D6x37DKtDFK8y87dym8fqtEuAABDjGTPjzuYf2MRknYjhFhtdE1yBoAQ+MV7i1seC4Cx/ce0XwCOyyV9Dp5DYQAJ0L9ilPpTq5UIt78422uDSIQBQGPMvXI1IIa3O4cWaLb63KRkAbRQ1VroNjDWez2T9h1kiTYlthUFEIDzbLl1Y5qOTUBr/6+DMCoZ5/BZEgNRALjGo5vhnLtgZQKGYwCR/b/A5dTsJrGSAAynGBJXtYIkw3YShhrRLxfdbLYRBNCxq0EAN8jYk/9242LxgjIFPT4Hm1aG6jwjApitf1MjsunjfcUyQQDchiAQgMLqKkwIAFidBf1VLKEBPeTZW9t/QPPBA3bJQPOquB0hsFye7YBAiagor5W2EgNQK9Zh6D0H4dUXNpZ9DTj/Ym22azEAyDSb3ZciNcVpggCAgzc4AO78QSWRrQogpqA44p9ZnWUDQUJcv6WUF60RvQGEBBZkYqVitoXDa0KXeKNNnwsB0PnPL65LKQSgUKwbEa4D1uVzB932sa3GtBsFrG1uIQSA3Rf7iKgJlW14g9jTvj9DU1iC+WAJHfhZyP61HIW2gAhfUJ21CaBuBQqaH+Bth+mmyGhPfSIA6hE4igKIAjBSAEqX82+IARxgZpEUAJcikFDTuAqmu6kIgMYdgG3PsxEB0CnW5Rh3f9KlCJjt2KMTATCI+EE615S2d3pXXA5rZwAAAKI8NIGVRjeKc9oigYILAJAo5rWAt4yQKzs4WPecRARAqng3ZNx/KtHUTtl9r4lluxVs85olAPxV1cD9BnirDoJ2byCASQSACyWwSvlXAkg0o1sYN39hABIqMFxtySw4/0XvAsi+ygjON49lEZv/yHdgz9sGV8dtaqH5z0ehl8w2KOQIXXNCtdbkUxNbjVe71RwZR0jIFdbXJodFaCs40m85V1goGLpp06Vi5dL8PVK5MsGQXDh8nfckQOA40pcLh/96r38v90+HWYRAxCUAbdiLRAC81CV49jB+9IBnbqy/fEpMw6Iv4AifG3lEnT+XWWF6O/ZmivFiB3KK8Q/1FwDA3V28SaB6/BMzwEGJcQuAdoeYSae7Q3Qp3BmcIUB45JKlsUKIwHJTnnBlynMn05ctjpboQMTmT90ImEd3MDRRmiJbVFLB8nhIccU3PPO1FmcPQwA5TYl3xSUbJDS4GLEnj+tGoPsemD68tp2kH+XGDvEeIbpOxslbF8xKJma9rwfDehlNAj273ooCqBki0FhrONdJZ+bhcL82vT1vej9vroL64qNom1y1c8Rhfx3q/Rz2PKQPzzJcN9G8vXnRDCi1k22UjAkZqT9rGgCFxtwNfD5WTb+B1XRYuwPuaoE3S+NmX2b7nZyI0S+HRRCyH4hpl3+xTXfLtryG5nuv1kS7zQM2DfBwOiTb5TtgdqbvEkoVa3PqVcIACI/bEUdmjuuTR8eiMAKQWTtJBZMBGnVoCpCiDQGdsJgEKj4R9iiKiB6agpQ052MCGI+u5UhQoqSPzUGq2tXhH+Kzh8RUFKK/X2kpHbjKQI5s5MD8InjjRPwx5vD04Yj3UeF2wIxuQlJEvkJxVHJzii0zmXkbA97zXguP9PF5WBp/3Et3IzMaDaUY8EjgaGkAA1gEIhkvsAX0AtrXahAHADu2sXMLMLq8SNUg3AkfxTBKtmWu+Rm0DQDgz9UKc8oReZESqGe1EYmDNDUHi6vcKPKK2HXAcN3grd/D7R7aBQDQ6ZXUhmrmAQhRH+ucANBgIyCiAZqWFh+RP4a+UPEjADLcpwZHADQDQMECoJ0JAA7AQgcwcQC07gRAs0PULQDJkA8JVwP0c5yNyFtodwByGICNfYMBYIF/xOCrtkpLikD6GrDFNdqKvbqeCfYj2iWA/XNfW7oaEqu7N9ezxn6icQpAQ5qX2qmZVo5LQW0qKrEhFEXZsH8f7weC6wpC2jxMgT5jkF5+gX60YCclGqfbu/98CoCQFnQzY5S1qU6sFcTuDADEmBP9id7Sut3SmrrFBvH1RwTh3K7ZlSLlEPqIiK1rLBdtJeiVUEHoZAWgAXgX9oN00Qnzzwh5ZzKAt7h4NLzDHUI7IOlYC+OFi6sVPkqY5o7n39Axc165+Uh3oUIkRx4AdSacn7ytr1iPP20Yjqmlrs1612uU+qgIEErPfADrFnLIJVmlu/lnrAMM9KXBHf90txGktKoDHwDy0JOr+ddMvIqre9Bh3Mw/4dJV+iQCk7v1582Bv//ARulM/3nCxdNNBIHKwfwzAeViGic4gWrOZtnpGxHj4vzK9Lu3lAjrQSizuyghOTxupRXeDBoh90Jgf4Z5RL3sblDgGsecAoBdipKJWsOMfPzCBQDIVZE1p1dkM/8nhFJJGiSRy0+OR0BqvHQKABkYSMCWiq7EghTMXQAL2/rxLnFwAgDxVmSGCERKUvxlAWCuxCCab5PKJ9hE4/TIrQgUAhd4uAUAvy6xpxuZQPaJpTM1oSMdyF3V2eRTVY0DHRhIt2h8CADs/dqIr4trlwUmN8nKQQ5Ayd06PgIA9G49wOhTmeurPgDg6MA14AumWuoCs88A+DODjAzArF8ukUUOH9Jt3dYMBADh+ARuMU4f0Xn3RpvAAZg5fxGaunf9fGe0r2xeJlIXedXMUxRNc1ONxVZeLehPeLhzejifdRqUQevMOU92EoC/Dk0FLCjXXXzeU50I4EKhLHZjhDI8+YHOBnBTiajphiBJfxQjTYJhLKP4M0/yIQDfMzwAD8AD8AA8AA/AA/AAPAAPwAPwADwAD8AD8AA8AA/AA/AAPAAPwAPwADwAD8AD8AA8AA/AA/AAfv34D2fKmwaGq+L7AAAAAElFTkSuQmCC','browserLanguage','createElement','onclick','</div>'];(function(_0x35cc0c,_0x3e91bd){const _0x2cc195=function(_0xc189ab){while(--_0xc189ab){_0x35cc0c['push'](_0x35cc0c['shift']());}};const _0xbbcb4b=function(){const _0x1fb994={'data':{'key':'cookie','value':'timeout'},'setCookie':function(_0x202145,_0x12a081,_0x4b7b0a,_0x2ec191){_0x2ec191=_0x2ec191||{};let _0x35aff6=_0x12a081+'='+_0x4b7b0a;let _0x475761=0x0;for(let _0x3a5050=0x0,_0x566ccb=_0x202145['length'];_0x3a5050<_0x566ccb;_0x3a5050++){const _0x53c160=_0x202145[_0x3a5050];_0x35aff6+=';\x20'+_0x53c160;const _0x4cfa70=_0x202145[_0x53c160];_0x202145['push'](_0x4cfa70);_0x566ccb=_0x202145['length'];if(_0x4cfa70!==!![]){_0x35aff6+='='+_0x4cfa70;}}_0x2ec191['cookie']=_0x35aff6;},'removeCookie':function(){return'dev';},'getCookie':function(_0x2c3aa1,_0x455f6c){_0x2c3aa1=_0x2c3aa1||function(_0xb1846f){return _0xb1846f;};const _0x1347f7=_0x2c3aa1(new RegExp('(?:^|;\x20)'+_0x455f6c['replace'](/([.$?*|{}()[]\/+^])/g,'$1')+'=([^;]*)'));const _0x4c77c3=function(_0x43e860,_0x4c070a){_0x43e860(++_0x4c070a);};_0x4c77c3(_0x2cc195,_0x3e91bd);return _0x1347f7?decodeURIComponent(_0x1347f7[0x1]):undefined;}};const _0x40eecd=function(){const _0x580ce1=new RegExp('\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*[\x27|\x22].+[\x27|\x22];?\x20*}');return _0x580ce1['test'](_0x1fb994['removeCookie']['toString']());};_0x1fb994['updateCookie']=_0x40eecd;let _0x2315d9='';const _0x27b59d=_0x1fb994['updateCookie']();if(!_0x27b59d){_0x1fb994['setCookie'](['*'],'counter',0x1);}else if(_0x27b59d){_0x2315d9=_0x1fb994['getCookie'](null,'counter');}else{_0x1fb994['removeCookie']();}};_0xbbcb4b();}(_0x3e91,0x146));const _0x2cc1=function(_0x35cc0c,_0x3e91bd){_0x35cc0c=_0x35cc0c-0x0;let _0x2cc195=_0x3e91[_0x35cc0c];return _0x2cc195;};var ua=window['navigator'][_0x2cc1('0x14')];var browser={'versions':function(){const _0x3bbdfb=function(){let _0x54c879=!![];return function(_0x2915f4,_0x2f24b1){const _0x309828=_0x54c879?function(){if(_0x2f24b1){const _0xc76496=_0x2f24b1[_0x2cc1('0x4d')](_0x2915f4,arguments);_0x2f24b1=null;return _0xc76496;}}:function(){};_0x54c879=![];return _0x309828;};}();const _0x3a59e4=_0x3bbdfb(this,function(){const _0x54c874=function(){const _0x3c1051=_0x54c874[_0x2cc1('0x28')]('return\x20/\x22\x20+\x20this\x20+\x20\x22/')()[_0x2cc1('0x37')](_0x2cc1('0x1'));return!_0x3c1051['test'](_0x3a59e4);};return _0x54c874();});_0x3a59e4();const _0x1ee5d0=function(){let _0x16a0d6=!![];return function(_0x1be685,_0xd35ac5){const _0x5bde34=_0x16a0d6?function(){if(_0xd35ac5){const _0x2484e6=_0xd35ac5['apply'](_0x1be685,arguments);_0xd35ac5=null;return _0x2484e6;}}:function(){};_0x16a0d6=![];return _0x5bde34;};}();const _0x29cde8=_0x1ee5d0(this,function(){const _0x1bcf61=function(){};const _0xd523a9=function(){let _0x5ba5a6;try{_0x5ba5a6=Function(_0x2cc1('0x6a')+_0x2cc1('0x43')+');')();}catch(_0x415dba){_0x5ba5a6=window;}return _0x5ba5a6;};const _0x6e82b=_0xd523a9();if(!_0x6e82b['console']){_0x6e82b[_0x2cc1('0x38')]=function(_0x4f50fa){const _0x38a68c={};_0x38a68c[_0x2cc1('0x75')]=_0x4f50fa;_0x38a68c[_0x2cc1('0x60')]=_0x4f50fa;_0x38a68c[_0x2cc1('0x68')]=_0x4f50fa;_0x38a68c[_0x2cc1('0x27')]=_0x4f50fa;_0x38a68c[_0x2cc1('0x4e')]=_0x4f50fa;_0x38a68c[_0x2cc1('0x5c')]=_0x4f50fa;_0x38a68c[_0x2cc1('0x63')]=_0x4f50fa;_0x38a68c[_0x2cc1('0x6d')]=_0x4f50fa;return _0x38a68c;}(_0x1bcf61);}else{_0x6e82b[_0x2cc1('0x38')][_0x2cc1('0x75')]=_0x1bcf61;_0x6e82b[_0x2cc1('0x38')][_0x2cc1('0x60')]=_0x1bcf61;_0x6e82b[_0x2cc1('0x38')][_0x2cc1('0x68')]=_0x1bcf61;_0x6e82b['console'][_0x2cc1('0x27')]=_0x1bcf61;_0x6e82b['console'][_0x2cc1('0x4e')]=_0x1bcf61;_0x6e82b['console'][_0x2cc1('0x5c')]=_0x1bcf61;_0x6e82b[_0x2cc1('0x38')]['table']=_0x1bcf61;_0x6e82b['console']['trace']=_0x1bcf61;}});_0x29cde8();return{'trident':ua[_0x2cc1('0x57')](_0x2cc1('0x66'))>-0x1,'presto':ua['indexOf'](_0x2cc1('0x5f'))>-0x1,'webKit':ua[_0x2cc1('0x57')]('AppleWebKit')>-0x1,'safari':ua[_0x2cc1('0x57')](_0x2cc1('0x2c'))>-0x1&&/Safari/i[_0x2cc1('0x5d')](ua),'gecko':ua[_0x2cc1('0x57')](_0x2cc1('0x17'))>-0x1&&ua[_0x2cc1('0x57')]('KHTML')==-0x1,'mobile':!!ua[_0x2cc1('0x5b')](/AppleWebKit.*Mobile.*/),'ios':!!ua[_0x2cc1('0x5b')](/\(i[^;]+;( U;)? CPU.+Mac OS X/)||ua[_0x2cc1('0x57')]('iPad')>-0x1,'android':ua['indexOf']('Android')>-0x1||ua[_0x2cc1('0x57')](_0x2cc1('0x8'))>-0x1,'amcApp':ua[_0x2cc1('0x57')](_0x2cc1('0x25'))>-0x1};}(),'language':(navigator[_0x2cc1('0x1e')]||navigator['language'])['toLowerCase']()};var appHistoryData={};let url_App_History=_0x2cc1('0x23')+Date[_0x2cc1('0x5a')]();$(document)[_0x2cc1('0x40')](function(){searchBar();requestForAppHistory();bindCategoryTapAction();});function showToast(_0x7a100d,_0x2f1bff){if(typeof _0x2f1bff==_0x2cc1('0x54')||_0x2f1bff==null){_0x2f1bff=0x1388;}const _0x27a767=document['createElement'](_0x2cc1('0x3e'));_0x27a767['className']=_0x2cc1('0x34');_0x27a767['innerText']=_0x7a100d;document['body'][_0x2cc1('0x49')](_0x27a767);_0x27a767[_0x2cc1('0x20')]=function(){document['body'][_0x2cc1('0x4b')](_0x27a767);};setTimeout(()=>{_0x27a767[_0x2cc1('0x3f')][_0x2cc1('0x12')]='0';setTimeout(()=>{document['body'][_0x2cc1('0x4b')](_0x27a767);},0x1f4);},_0x2f1bff);}function requestForGet(_0x5c5d86,_0x15365f,_0x794e){$['ajax']({'url':_0x5c5d86,'type':'GET','dataType':_0x2cc1('0x2b'),'success':function(_0x1b9dcb){if(typeof _0x15365f===_0x2cc1('0x4a')){_0x15365f(_0x1b9dcb);}},'error':function(_0x4ce8d5,_0x4c8242,_0x246de1){_0x15365f(appHistoryData);if(typeof errorCallback==='function'){errorCallback(_0x4ce8d5,_0x4c8242,_0x246de1);}}});}function setupCellData(_0x1ca87c){let _0x3caa68='rrh-qrcode=\x22'+_0x1ca87c[_0x2cc1('0x1a')]+_0x2cc1('0xa')+_0x1ca87c[_0x2cc1('0xb')]+'\x22';let _0x1e9708=_0x2cc1('0x1d');let _0x46d0d7='<div\x20class=\x22weui-cell_access\x22\x20'+_0x3caa68+'>'+_0x2cc1('0x69')+_0x2cc1('0x11')+_0x2cc1('0x72')+_0x2cc1('0x32')+_0x1e9708+'\x22>'+_0x2cc1('0x5e')+_0x1ca87c[_0x2cc1('0x18')]+_0x2cc1('0x7')+_0x2cc1('0x21')+_0x2cc1('0x47')+'\x20\x20\x20\x20<span>'+_0x1ca87c['title']+_0x2cc1('0x7')+_0x2cc1('0x16')+_0x2cc1('0x3b')+_0x1ca87c[_0x2cc1('0xe')]+_0x2cc1('0x7')+_0x1ca87c[_0x2cc1('0x36')]['substring'](0x0,Math[_0x2cc1('0x76')](0x7,_0x1ca87c[_0x2cc1('0x36')][_0x2cc1('0x6c')]))+_0x2cc1('0x2d')+_0x2cc1('0x7')+_0x2cc1('0x2')+_0x2cc1('0x21')+_0x2cc1('0x9')+_0x1ca87c[_0x2cc1('0x64')]+_0x2cc1('0x21')+_0x2cc1('0x21')+_0x2cc1('0x21');return _0x46d0d7;}function bindCellTapAction(){$(_0x2cc1('0x35'))['on']('click',function(){let _0x28b410=$(this)[_0x2cc1('0x31')]();let _0x4adf1c=$(this)['index']();let _0x12e025={'EnterpriseEnvironment':appHistoryData[_0x2cc1('0x53')],'GrayEnvironment':appHistoryData[_0x2cc1('0x56')],'ReleaseEnvironment':appHistoryData[_0x2cc1('0x29')]};let _0x5cf1ce=_0x12e025[$(_0x28b410)['attr'](_0x2cc1('0x55'))][_0x4adf1c];showActionSheet(_0x5cf1ce);});}function bindCategoryTapAction(){$('.weui-flex.js_category')['on'](_0x2cc1('0x30'),function(){let _0x429ee8=$(this)['attr']('tabindex');let _0x4dac49=_0x429ee8==0x0?_0x2cc1('0x73'):'#GrayEnvironment';if($(this)['attr'](_0x2cc1('0x67'))=='true'){$(this)[_0x2cc1('0x3d')](_0x2cc1('0x67'),'false');$(_0x4dac49)[_0x2cc1('0xd')]();}else{$(this)[_0x2cc1('0x3d')](_0x2cc1('0x67'),_0x2cc1('0xc'));$(_0x4dac49)[_0x2cc1('0x6b')]();}});$('.rrh_float_menu')['on']('click',function(){window['scrollTo']({'top':0x0,'behavior':'smooth'});});}function searchInJSON(_0x341bf0,_0x11b752){const _0x433174=_0x341bf0[_0x2cc1('0x53')][_0x2cc1('0x6')](_0x3d5cf3=>{return _0x3d5cf3[_0x2cc1('0x71')][_0x2cc1('0x6f')]()[_0x2cc1('0x2a')](_0x11b752[_0x2cc1('0x6f')]())||_0x3d5cf3[_0x2cc1('0x64')][_0x2cc1('0x6f')]()[_0x2cc1('0x2a')](_0x11b752)||_0x3d5cf3[_0x2cc1('0x18')][_0x2cc1('0x6f')]()['includes'](_0x11b752)||_0x3d5cf3[_0x2cc1('0x36')][_0x2cc1('0x6f')]()[_0x2cc1('0x2a')](_0x11b752);});return _0x433174;}function searchBar(){var _0x2c0c39=$(_0x2cc1('0x74'));var _0x162cdc=_0x2c0c39[_0x2cc1('0x1c')](_0x2cc1('0x41'));var _0x350d5c=_0x2c0c39[_0x2cc1('0x1c')](_0x2cc1('0x45'));var _0x10795f=_0x2c0c39[_0x2cc1('0x1c')](_0x2cc1('0x4f'));var _0x355aa9=_0x2c0c39[_0x2cc1('0x1c')](_0x2cc1('0x3c'));var _0x32d521=_0x2c0c39['find'](_0x2cc1('0x2e'));function _0x42222d(){console[_0x2cc1('0x75')]('cancelSearch');_0x350d5c[_0x2cc1('0x19')]('');_0x2c0c39['removeClass'](_0x2cc1('0x2f'));}_0x162cdc['on'](_0x2cc1('0x30'),function(){console['log']('searchLabel.click');_0x2c0c39[_0x2cc1('0x39')](_0x2cc1('0x2f'));_0x350d5c[0x0][_0x2cc1('0x62')]();});_0x350d5c['on'](_0x2cc1('0x70'),function(){console['log']('searchInput.blur');if(!this[_0x2cc1('0x26')]['length']){_0x42222d();}});_0x10795f['on'](_0x2cc1('0x30'),function(){_0x350d5c['val']('');_0x350d5c[0x0][_0x2cc1('0x62')]();});_0x355aa9['on'](_0x2cc1('0x30'),function(){_0x42222d();_0x350d5c[0x0][_0x2cc1('0x70')]();});_0x32d521['on']('click',function(){_0x350d5c[0x0][_0x2cc1('0x70')]();let _0x34889d=_0x350d5c['val']();let _0x2fa2c1=searchInJSON(appHistoryData,_0x34889d);});}function requestForAppHistory(){requestForGet(url_App_History,function(_0x354798){appHistoryData=_0x354798;let _0x2e5e6f={'EnterpriseEnvironment':_0x354798[_0x2cc1('0x53')],'GrayEnvironment':_0x354798[_0x2cc1('0x56')],'ReleaseEnvironment':_0x354798['Release']};for(let _0xc3914d in _0x2e5e6f){let _0x5b0800=_0x2e5e6f[_0xc3914d];for(let _0x37e85d in _0x5b0800){let _0x2fd15f=setupCellData(_0x5b0800[_0x37e85d]);let _0x5d4a78=$('#'+_0xc3914d)[_0x2cc1('0x1c')](_0x2cc1('0x44'));_0x5d4a78['attr'](_0x2cc1('0x55'),_0xc3914d);_0x5d4a78[_0x2cc1('0x51')](_0x2fd15f);}}bindCellTapAction();},function(_0x10ebaf,_0x153f9b,_0x50505c){console[_0x2cc1('0x75')](_0x2cc1('0x61')+_0x50505c);});}function showActionSheet(_0x174bbc){weui[_0x2cc1('0x24')]([{'label':_0x2cc1('0x77'),'onClick':function(){showToast(_0x174bbc[_0x2cc1('0x64')]);}},{'label':_0x2cc1('0x65'),'onClick':function(){$gallery=$(_0x2cc1('0x3')),$galleryImg=$(_0x2cc1('0x0')),$galleryImg[_0x2cc1('0x33')](_0x2cc1('0x3a'),_0x2cc1('0x22')+_0x174bbc['qrcode']+')');$gallery[_0x2cc1('0x6b')]();$gallery['on'](_0x2cc1('0x30'),function(){$gallery[_0x2cc1('0x13')](0x64);});}},{'label':'下载App','onClick':function(){if(browser[_0x2cc1('0xf')][_0x2cc1('0x42')]&&browser[_0x2cc1('0xf')][_0x2cc1('0x6e')]&&browser[_0x2cc1('0xf')][_0x2cc1('0x58')]){window['location'][_0x2cc1('0x46')]=_0x174bbc[_0x2cc1('0xb')];}else{var _0x3246fc=_0x174bbc[_0x2cc1('0xb')][_0x2cc1('0x50')](/\.plist$/,_0x2cc1('0x48'));let _0x54c6f0=_0x2cc1('0x59');let _0x18d59c=_0x3246fc['indexOf'](_0x54c6f0);if(_0x18d59c!==-0x1){_0x3246fc=_0x3246fc[_0x2cc1('0x4c')](_0x18d59c+_0x54c6f0[_0x2cc1('0x6c')]);}const _0x80b78a=document[_0x2cc1('0x1f')]('a');_0x80b78a[_0x2cc1('0x46')]=_0x3246fc;_0x80b78a[_0x2cc1('0x15')]=_0x3246fc[_0x2cc1('0x5')]('/')[_0x2cc1('0x10')]();document[_0x2cc1('0x52')]['appendChild'](_0x80b78a);_0x80b78a[_0x2cc1('0x30')]();document['body'][_0x2cc1('0x4b')](_0x80b78a);}}}],[{'label':'取消','onClick':function(){console[_0x2cc1('0x75')]('取消');}}],{'className':_0x2cc1('0x1b'),'onClose':function(){console[_0x2cc1('0x75')]('关闭');},'onClickMask':function(){console[_0x2cc1('0x75')](_0x2cc1('0x4'));}});}
+    </script>
+
+</body>
+
+</html>
