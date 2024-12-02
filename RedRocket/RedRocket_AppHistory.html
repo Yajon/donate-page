@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<!-- /******/
+    //  Created by GuoYanjun on 2020/11/22.
+    //  https://yojoy.top || https://guoyanjun.top
+/******/ -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>🚀 红色火箭App下载</title>
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+            font-family: system-ui, -apple-system, Helvetica Neue, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            --rrh-commonOrange-0: #F96C24;
+        }
+
+        .rrh_page {
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            outline: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        /* Toast 样式 */
+        .rrh_toast {
+            position: fixed;
+            text-align: center;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 1.0;
+            transition: opacity 0.5s ease;
+            z-index: 1000;
+        }
+
+        .rrh_cellIcon {
+            width: 30px;
+            margin-right: 6px;
+            border-color: var(--rrh-commonOrange-0);
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 5px;
+            display: block;
+        }
+
+        .rrh_cellBack {
+            box-shadow: 0px 10px 10px 0px rgba(86, 100, 114, 0.1);
+            border-radius: 8px;
+            margin: 0px 16px 10px;
+            background-color: var(--weui-BG-0);
+        }
+
+        .rrh_cell_desc_time {
+            color: var(--rrh-commonOrange-0);
+            border: var(--rrh-commonOrange-0) solid 1px;border-radius: 9px;
+            margin: 0 4px 0 0;
+            padding: 0 4px;
+            font-size: 10px;
+        }
+
+        .rrh_cellDescription {
+            border-top: 1px dotted var(--weui-FG-0);
+            font-size: 12px;
+            color: var(--weui-FG-2);
+            line-height: 1.4;
+            margin: -10px 16px 0px 16px;
+            padding-bottom: 5px;
+        }
+
+        /* 悬浮按钮 */
+        .rrh_float_menu {
+            position: fixed;
+            z-index: 88;
+            right: 16px;
+            bottom: 34px;
+            padding: 4px;
+            cursor: pointer;
+        }
+
+        .rrh_float_btn {
+            width: 40px;
+            height: 40px;
+            user-select: none;
+            background: rgba(216, 218, 220, 0.8);
+            transition: all 0.3s ease-in-out;
+            backdrop-filter: saturate(180%) blur(20px);
+            right: unset;
+            bottom: unset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-size: 14px;
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            list-style: none;
+            font-feature-settings: "tnum";
+            z-index: 10;
+            position: relative;
+        }
+        .rrh_back_top_icon {
+            width: 20px;
+            height: 20px;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAuMDAwMDAwIiBoZWlnaHQ9IjIwLjAwMDAwMCIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KCTxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTpub3JtYWwiPgoJCTxyZWN0IGlkPSJpYy9wdWJsaWMvYXJyb3cudXBfbGluZSIgd2lkdGg9IjIwLjAwMDAwMCIgaGVpZ2h0PSIyMC4wMDAwMDAiIGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iMCIvPgoJCTxtYXNrIGlkPSJtYXNrXzEzNzZfMzMyNzciIGZpbGw9IndoaXRlIj4KCQkJPHBhdGggaWQ9IuW9oueKtue7k+WQiCIgZD0iTTExLjIxODUgMi4xNjY5M0MxMC40ODE2IDEuNTM1ODkgOS4zNzE0MyAxLjU2OTA5IDguNjczODkgMi4yNjY2TDIuNDc0NyA4LjQ2NTc2TDIuNDE0MTggOC41MzU4OUMyLjIzMjY3IDguNzgwNTIgMi4yNTI4NCA5LjEyNzc1IDIuNDc0NyA5LjM0OTY3QzIuNzE4NzggOS41OTM3NSAzLjExNDUzIDkuNTkzNzUgMy4zNTg2MSA5LjM0OTY3TDkuMzc1IDMuMzMzMjVMOS4zNzUgMTcuNjU3N0w5LjM4MDcxIDE3Ljc0MjVDOS40MjIwOSAxOC4wNDc1IDkuNjgzNTYgMTguMjgyNyAxMCAxOC4yODI3QzEwLjM0NTIgMTguMjgyNyAxMC42MjUgMTguMDAyOSAxMC42MjUgMTcuNjU3N0wxMC42MjUgMy4zMzMyNUwxNi42NDE0IDkuMzQ5NjdMMTYuNzExNSA5LjQxMDE2QzE2Ljk1NjEgOS41OTE2NyAxNy4zMDM0IDkuNTcxNTMgMTcuNTI1MyA5LjM0OTY3QzE3Ljc2OTMgOS4xMDU1OSAxNy43NjkzIDguNzA5ODQgMTcuNTI1MyA4LjQ2NTc2TDExLjMyNjEgMi4yNjY2TDExLjIxODUgMi4xNjY5M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIiBmaWxsLW9wYWNpdHk9IjEuMDAwMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KCQk8L21hc2s+CgkJPHBhdGggaWQ9IuW9oueKtue7k+WQiCIgZD0iTTExLjIxODUgMi4xNjY5M0MxMC40ODE2IDEuNTM1ODkgOS4zNzE0MyAxLjU2OTA5IDguNjczODkgMi4yNjY2TDIuNDc0NyA4LjQ2NTc2TDIuNDE0MTggOC41MzU4OUMyLjIzMjY3IDguNzgwNTIgMi4yNTI4NCA5LjEyNzc1IDIuNDc0NyA5LjM0OTY3QzIuNzE4NzggOS41OTM3NSAzLjExNDUzIDkuNTkzNzUgMy4zNTg2MSA5LjM0OTY3TDkuMzc1IDMuMzMzMjVMOS4zNzUgMTcuNjU3N0w5LjM4MDcxIDE3Ljc0MjVDOS40MjIwOSAxOC4wNDc1IDkuNjgzNTYgMTguMjgyNyAxMCAxOC4yODI3QzEwLjM0NTIgMTguMjgyNyAxMC42MjUgMTguMDAyOSAxMC42MjUgMTcuNjU3N0wxMC42MjUgMy4zMzMyNUwxNi42NDE0IDkuMzQ5NjdMMTYuNzExNSA5LjQxMDE2QzE2Ljk1NjEgOS41OTE2NyAxNy4zMDM0IDkuNTcxNTMgMTcuNTI1MyA5LjM0OTY3QzE3Ljc2OTMgOS4xMDU1OSAxNy43NjkzIDguNzA5ODQgMTcuNTI1MyA4LjQ2NTc2TDExLjMyNjEgMi4yNjY2TDExLjIxODUgMi4xNjY5M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIzAwMDAwMCIgZmlsbC1vcGFjaXR5PSIxLjAwMDAwMCIgZmlsbC1ydWxlPSJldmVub2RkIiBtYXNrPSJ1cmwoI21hc2tfMTM3Nl8zMzI3NykiLz4KCQk8cGF0aCBpZD0i5b2i54q257uT5ZCIIiBkPSIiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIzk3OTc5NyIgZmlsbC1vcGFjaXR5PSIwLjAwMDAwMCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cgk8L2c+Cjwvc3ZnPgo=);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        /* 跑马灯 */
+        .rrh_marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+
+        .rrh_marquee_content {
+            display: inline-block;
+            animation: rrh_marquee 5s linear infinite;
+        }
+
+        @keyframes rrh_marquee {
+            0% {
+                transform: translateX(25%);
+            }
+            100% {
+                transform: translateX(-25%);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://res.wx.qq.com/t/wx_fed/weui-source/res/2.6.18/weui.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/weui.js/res/1.2.21/weui.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="rrh_page">
+            <div class="page__hd" style="position: fixed;z-index: 88;background-color: var(--weui-BG-1);width: 100%;">
+                <div class="page__title" style="text-align: center; font-weight: bold;padding-top: 5px;color: var(--weui-FG-0);">
+                    <div class="rrh_marquee">
+                        <div class="rrh_marquee_content">
+                            🚀 红色火箭App下载，请使用iPhone的Safari浏览器打开
+                        </div>
+                    </div>
+                </div>
+
+                <div id="searchBar" style="background: var(--weui-BG-1);" class="weui-search-bar weui-search-bar_outlined">
+                    <!-- <a href="javascript:" role="button" class="weui-search-bar__back-btn">
+                        <i role="img" aria-label="返回" class="weui-icon-back-arrow-thin"></i>
+                    </a> -->
+                    <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false"
+                        aria-owns="searchResult" class="weui-search-bar__form">
+                        <div class="weui-search-bar__box">
+                            <input type="search" aria-controls="searchResult" class="weui-search-bar__input"
+                                id="searchInput" placeholder="搜索" required="">
+                            <div class="weui-search-bar__mask"></div>
+                            <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
+                        </div>
+                    </form>
+                    <a href="javascript:" role="button" class="weui-search-bar__search-btn weui-btn weui-btn_primary"
+                        style="background-color: var(--rrh-commonOrange-0)" id="searchBtn">搜索</a>
+                    <a href="javascript:" role="button" class="weui-search-bar__cancel-btn"
+                        style="color: var(--rrh-commonOrange-0)"="searchCancel">取消</a>
+                </div>
+            </div>
+
+            <div class="page__bd" style="margin-top: 107px;">
+                <!-- <div class="weui-cells__title">版本列表</div> -->
+                <div class="weui-flex js_category"
+                    style="padding: 0px 16px;background-color: rgba(249, 108, 36, 0.1); color: #F96C24;"
+                    data-expanded="true" tabindex="0">
+                    <p class="weui-flex__item" style="align-content: center;">测试环境</p>
+                    <img style="width: 30px; height: 30px;" src="https://weui.io/images/icon_nav_nav.png" alt=" 收起"
+                        role="button">
+                </div>
+                <div id="EnterpriseEnvironment" class="page__category js_categoryInner" data-hidden="false">
+                    <div class="weui-cells">
+                    </div>
+                </div>
+
+                <div class="weui-flex js_category"
+                    style="padding: 0px 16px;background-color: rgba(249, 108, 36, 0.1); color: #F96C24;"
+                    data-expanded="true" tabindex="1">
+                    <p class="weui-flex__item" style="align-content: center;">灰度环境</p>
+                    <img style="width: 30px; height: 30px;" src="https://weui.io/images/icon_nav_nav.png" alt=" 收起"
+                        role="button">
+                </div>
+                <div id="GrayEnvironment" class="page__category js_categoryInner" data-hidden="false">
+                    <div class="weui-cells">
+                    </div>
+                </div>
+                <div class="weui-flex js_category"
+                    style="padding: 0px 16px;background-color: rgba(249, 108, 36, 0.1); color: #F96C24;"
+                    data-expanded="true" tabindex="2">
+                    <p class="weui-flex__item" style="align-content: center;">生产环境</p>
+                    <img style="width: 30px; height: 30px;" src="https://weui.io/images/icon_nav_nav.png" alt=" 收起"
+                        role="button">
+                </div>
+                <div id="ReleaseEnvironment" class="page__category js_categoryInner" data-hidden="false">
+                    <div class="weui-cells">
+                    </div>
+                </div>
+                <div id="qrcodeDialog" class="weui-gallery" id="gallery" wah-hotarea="click"
+                    style="display: none; opacity: 1;">
+                    <span id="galleryImg" class="weui-gallery__img" style="background-image: url();"></span>
+                    <div class="weui-gallery__opr">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page__ft"
+                style="color: #000000;z-index: 10;position: fixed;bottom: 0px;background-color: #FFFFFF;height: 34px;width: 100%;display: flex;">
+                <div class="weui-footer" style="color: #000000;align-content: center;width: 100%;">
+                    <div class="weui-footer__text">
+                        Copyright © <a class="weui-footer__text__meta" href="https://yojoy.top">郭艳军 / 🚀红色火箭iOS组</a>
+                        CAMC All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rrh_float_menu">
+            <div class="rrh_float_btn">
+                <i class="rrh_back_top_icon"></i>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const _0x4103=['pop','length','title','searchClear.click','body','toLowerCase','environment','undefined','Presto','find','append','appendChild','.weui-search-bar__cancel-btn','indexOf','<div\x20class=\x22weui-cell__hd\x22>','</div>','https://cdn-oss-msts.amcfortune.com/app-pack/RedRocket/RedRocket_AppHistory.json?t=','createElement','data-expanded','innerText','background-image','searchInput.blur','now','二维码','qrcode','.ipa','function','data:image/png;base64,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','\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22rrh_cell_desc_time\x22>','.weui-cells','log','<div\x20class=\x22rrh_cellDescription\x22>','opacity','smooth','<span\x20class=\x22weui-cell__bd\x22>','removeClass','cancelSearch','GrayEnvironment','show','test','searchLabel.click','versions','addClass','true','match','removeChild','attr','Linux','url','\x20\x20\x20\x20<span\x20style=\x22font-size:\x2011px;background-color:\x20rgba(249,\x20108,\x2036,\x200.5);border-radius:\x207px;padding:\x200\x204px;\x22>','http请求失败\x20==\x20\x0a','Environment','#galleryImg','.weui-cells\x20.weui-cell_access','<div\x20role=\x22option\x22\x20class=\x22weui-cell\x22>','GET','custom-classname','filter','css','KHTML','<div\x20class=\x22weui-cell__ft\x22></div>','style','click','\x20\x20\x20\x20<div\x20class=\x22weui-cell__desc\x22\x20style=\x22color:\x20var(--weui-FG-0);\x22>','Gecko','revision','版本说明','searchBtn.click','\x20\x20\x20\x20<img\x20alt=\x22\x22\x20class=\x22rrh_cellIcon\x22\x20src=\x22','substring','empty','onclick','.weui-search-bar__search-btn','val','div'];const _0x430f=function(_0x4103ff,_0x430feb){_0x4103ff=_0x4103ff-0x0;let _0x43bf39=_0x4103[_0x4103ff];return _0x43bf39;};var ua=window['navigator']['userAgent'];var browser={'versions':function(){return{'trident':ua['indexOf']('Trident')>-0x1,'presto':ua['indexOf'](_0x430f('0x8'))>-0x1,'webKit':ua[_0x430f('0xd')]('AppleWebKit')>-0x1,'safari':ua[_0x430f('0xd')]('AppleWebKit')>-0x1&&/Safari/i[_0x430f('0x27')](ua),'gecko':ua[_0x430f('0xd')](_0x430f('0x40'))>-0x1&&ua[_0x430f('0xd')](_0x430f('0x3b'))==-0x1,'mobile':!!ua[_0x430f('0x2c')](/AppleWebKit.*Mobile.*/),'ios':!!ua[_0x430f('0x2c')](/\(i[^;]+;( U;)? CPU.+Mac OS X/)||ua['indexOf']('iPad')>-0x1,'android':ua[_0x430f('0xd')]('Android')>-0x1||ua[_0x430f('0xd')](_0x430f('0x2f'))>-0x1,'amcApp':ua['indexOf']('amcredrocket')>-0x1};}(),'language':(navigator['browserLanguage']||navigator['language'])[_0x430f('0x5')]()};let appCellIdentifiers=['EnterpriseEnvironment',_0x430f('0x25'),'ReleaseEnvironment'];var appHistoryData={};let url_App_History=_0x430f('0x10')+Date[_0x430f('0x16')]();$(document)['ready'](function(){searchBar();requestForAppHistory();bindCategoryTapAction();});function showToast(_0x3d945b,_0x540dd0){if(typeof _0x540dd0==_0x430f('0x7')||_0x540dd0==null){_0x540dd0=0x1388;}const _0x3f919d=document[_0x430f('0x11')](_0x430f('0x4a'));_0x3f919d['className']='rrh_toast';_0x3f919d[_0x430f('0x13')]=_0x3d945b;document['body']['appendChild'](_0x3f919d);_0x3f919d[_0x430f('0x47')]=function(){document['body'][_0x430f('0x2d')](_0x3f919d);};setTimeout(()=>{_0x3f919d[_0x430f('0x3d')][_0x430f('0x20')]='0';setTimeout(()=>{document['body']['removeChild'](_0x3f919d);},0x1f4);},_0x540dd0);}function requestForGet(_0x2f5210,_0x2b607e,_0x16ac75){$['ajax']({'url':_0x2f5210,'type':_0x430f('0x37'),'dataType':'json','success':function(_0x1a0aeb){if(typeof _0x2b607e===_0x430f('0x1a')){_0x2b607e(_0x1a0aeb);}},'error':function(_0x2909c6,_0x584754,_0x3d4fe1){_0x2b607e(appHistoryData);if(typeof errorCallback==='function'){errorCallback(_0x2909c6,_0x584754,_0x3d4fe1);}}});}function searchInJSON(_0x15b28d,_0x136ac2){const _0x17396e=_0x15b28d['Enterprise'][_0x430f('0x39')](_0x281868=>{return _0x281868[_0x430f('0x2')]['toLowerCase']()['includes'](_0x136ac2[_0x430f('0x5')]())||_0x281868['description']['toLowerCase']()['includes'](_0x136ac2['toLowerCase']())||_0x281868['version'][_0x430f('0x5')]()['includes'](_0x136ac2['toLowerCase']())||_0x281868[_0x430f('0x41')][_0x430f('0x5')]()['includes'](_0x136ac2[_0x430f('0x5')]());});return _0x17396e;}function searchBar(){var _0x11dc92=$('#searchBar');var _0x3d6f04=_0x11dc92['find']('.weui-search-bar__label');var _0x5c0b2e=_0x11dc92[_0x430f('0x9')]('.weui-search-bar__input');var _0x2637d4=_0x11dc92[_0x430f('0x9')]('.weui-icon-clear');var _0x18702f=_0x11dc92['find'](_0x430f('0xc'));var _0xc14837=_0x11dc92['find'](_0x430f('0x48'));function _0x1ffa3f(){console['log'](_0x430f('0x24'));_0x5c0b2e[_0x430f('0x49')]('');_0x11dc92[_0x430f('0x23')]('weui-search-bar_focusing');}_0x3d6f04['on']('click',function(){console['log'](_0x430f('0x28'));_0x11dc92[_0x430f('0x2a')]('weui-search-bar_focusing');_0x5c0b2e[0x0]['focus']();});_0x5c0b2e['on']('blur',function(){console[_0x430f('0x1e')](_0x430f('0x15'));if(!this['value']['length']){_0x1ffa3f();}});_0x2637d4['on'](_0x430f('0x3e'),function(){console['log'](_0x430f('0x3'));_0x5c0b2e['val']('');_0x5c0b2e[0x0]['focus']();resetInitialData();});_0x18702f['on'](_0x430f('0x3e'),function(){console['log']('searchCancel.click');_0x1ffa3f();_0x5c0b2e[0x0]['blur']();resetInitialData();});_0xc14837['on']('click',function(){console[_0x430f('0x1e')](_0x430f('0x43'));_0x5c0b2e[0x0]['blur']();let _0x2b03bf=_0x5c0b2e[_0x430f('0x49')]();let _0x56c1f2=searchInJSON(appHistoryData,_0x2b03bf);if(_0x56c1f2['length']>0x0){clearCurrentData();for(let _0x517cbd in _0x56c1f2){let _0xe6f2f9=_0x56c1f2[_0x517cbd];let _0x579915=setupCellData(_0xe6f2f9);let _0x48ae5d=$('#'+_0xe6f2f9[_0x430f('0x6')]+_0x430f('0x33'))['find'](_0x430f('0x1d'));_0x48ae5d['append'](_0x579915);}bindCellTapAction();}else{showToast('搜索结果为空',0x7d0);}});}function bindCellTapAction(){$(_0x430f('0x35'))['on']('click',function(){let _0x129457=$(this)['index']();let _0x2c5ac5=appHistoryData[$(this)['attr']('rrh-environment')][_0x129457];showActionSheet(_0x2c5ac5);});}function bindCategoryTapAction(){$('.weui-flex.js_category')['on'](_0x430f('0x3e'),function(){let _0x1989c9=$(this)[_0x430f('0x2e')]('tabindex');let _0x186b0f='#'+appCellIdentifiers[_0x1989c9];if($(this)[_0x430f('0x2e')](_0x430f('0x12'))==_0x430f('0x2b')){$(this)[_0x430f('0x2e')]('data-expanded','false');$(_0x186b0f)['hide']();}else{$(this)[_0x430f('0x2e')]('data-expanded','true');$(_0x186b0f)[_0x430f('0x26')]();}});$('.rrh_float_menu')['on'](_0x430f('0x3e'),function(){window['scrollTo']({'top':0x0,'behavior':_0x430f('0x21')});});}function setupCellData(_0x57deeb){let _0x339f70='rrh-environment=\x22'+_0x57deeb['environment']+'\x22\x20';let _0x129618=_0x430f('0x1b');let _0x1201e9='<div\x20class=\x22weui-cell_access\x22\x20'+_0x339f70+'>'+'<div\x20class=\x22rrh_cellBack\x22>'+_0x430f('0x36')+_0x430f('0xe')+_0x430f('0x44')+_0x129618+'\x22>'+_0x430f('0x31')+_0x57deeb['version']+'</span>'+_0x430f('0xf')+_0x430f('0x22')+'\x20\x20\x20\x20<span>'+_0x57deeb[_0x430f('0x2')]+'</span>'+_0x430f('0x3f')+_0x430f('0x1c')+_0x57deeb['time']+'</span>'+_0x57deeb['revision']['substring'](0x0,Math['min'](0x7,_0x57deeb['revision'][_0x430f('0x1')]))+'\x20\x20\x20\x20</div>'+'</span>'+_0x430f('0x3c')+_0x430f('0xf')+_0x430f('0x1f')+_0x57deeb['description']+'</div>'+_0x430f('0xf')+'</div>';return _0x1201e9;}function clearCurrentData(){for(let _0x486fb7 in appCellIdentifiers){$('#'+appCellIdentifiers[_0x486fb7])[_0x430f('0x9')]('.weui-cells')[_0x430f('0x46')]();}}function resetInitialData(){clearCurrentData();for(let _0x34142a in appCellIdentifiers){let _0x23b7f0=appCellIdentifiers[_0x34142a]['split']('Environment')[0x0];let _0x47aaba=appHistoryData[_0x23b7f0];for(let _0x38064e in _0x47aaba){let _0x4db957=setupCellData(_0x47aaba[_0x38064e]);let _0x4c7c5c=$('#'+appCellIdentifiers[_0x34142a])['find']('.weui-cells');_0x4c7c5c[_0x430f('0xa')](_0x4db957);}}bindCellTapAction();}function requestForAppHistory(){requestForGet(url_App_History,function(_0x15a9d2){appHistoryData=_0x15a9d2;resetInitialData();},function(_0x2b1121,_0x12dd1a,_0x1f225c){console['log'](_0x430f('0x32')+_0x1f225c);});}function showActionSheet(_0x1238a5){weui['actionSheet']([{'label':_0x430f('0x42'),'onClick':function(){showToast(_0x1238a5['description']);}},{'label':_0x430f('0x17'),'onClick':function(){$gallery=$('#qrcodeDialog'),$galleryImg=$(_0x430f('0x34')),$galleryImg[_0x430f('0x3a')](_0x430f('0x14'),'url('+_0x1238a5[_0x430f('0x18')]+')');$gallery['show']();$gallery['on']('click',function(){$gallery['fadeOut'](0x64);});}},{'label':'下载App','onClick':function(){if(browser['versions']['mobile']&&browser['versions']['ios']&&browser[_0x430f('0x29')]['safari']){window['location']['href']=_0x1238a5['url'];}else{var _0x473eea=_0x1238a5[_0x430f('0x30')]['replace'](/\.plist$/,_0x430f('0x19'));let _0x1eb03d='itms-services://?action=download-manifest&url=';let _0x54fc71=_0x473eea['indexOf'](_0x1eb03d);if(_0x54fc71!==-0x1){_0x473eea=_0x473eea[_0x430f('0x45')](_0x54fc71+_0x1eb03d['length']);}const _0x16ff85=document['createElement']('a');_0x16ff85['href']=_0x473eea;_0x16ff85['download']=_0x473eea['split']('/')[_0x430f('0x0')]();document[_0x430f('0x4')][_0x430f('0xb')](_0x16ff85);_0x16ff85['click']();document[_0x430f('0x4')]['removeChild'](_0x16ff85);}}}],[{'label':'取消','onClick':function(){console[_0x430f('0x1e')]('取消');}}],{'className':_0x430f('0x38'),'onClose':function(){console['log']('关闭');},'onClickMask':function(){console['log']('点击mask');}});}
+    </script>
+
+</body>
+
+</html>
